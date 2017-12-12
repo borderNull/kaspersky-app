@@ -1,0 +1,591 @@
+@charset "UTF-8";
+/* ==========================================================================
+ * Layout
+ * ========================================================================== */
+
+.container{
+	overflow: hidden;
+	position: relative;
+
+	&__section{
+		
+	}
+}
+
+/* ==========================================================================
+ * section
+ * ========================================================================== */
+
+.section{
+
+	&__wrap{
+		@include clearfix;
+		max-width: 1360px;
+		padding: 0 5px;
+		margin: auto;
+	}
+
+	&__title{
+		text-align: center;
+		margin: 0 0 40px;
+		font-weight: 700;
+		font-size: 36px;
+		line-height: (50/36);
+	}
+
+	&__text{
+		margin: 0 0 30px;		
+	}
+}
+
+.app-section{
+	display: flex;
+	min-height: 100vh;
+	align-items: center;
+
+	&__app{
+		width: 100%;
+	}
+}
+/* ==========================================================================
+ * .derinat-logo
+ * ========================================================================== */
+
+.kaspersky-logo{
+	margin: 30px 25px 0 0;
+	display: inline-block;
+	text-indent: -9999px;
+	background: url(../images/logo.png);
+	width: 183px;
+	height: 65px;	
+}
+
+/* ==========================================================================
+ * app
+ * ========================================================================== */
+
+.app{
+
+	&__logo-placeholder{
+	    
+		text-align: right;
+		@media (min-width: 1000px){
+			//right: auto;
+		}
+	}
+
+	&__content{
+		background: #fff;
+		// background-image: url(../images/quiz/1.png);
+		// background-position: 90% 90%;
+		// background-repeat:no-repeat;
+		max-width: 80%;
+		min-height: 680px;
+		margin: auto;
+		@media (min-width: 1000px){
+			//padding: 0;
+		}
+	}
+
+	&__loader{
+		position: fixed;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 500;
+	}
+
+	&__error{
+		position: fixed;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 550;
+	}
+
+	&__page{
+		//padding: 35px 0;
+		&.login .app__content {
+	    background-image: url(../images/main.png);
+		background-position: 90% 100%;
+		background-repeat:no-repeat;
+		}
+	}
+
+	&__title{
+		font-size: 36px;
+		text-align: center;
+		color: $blue;
+		margin: 0 auto 40px;
+		max-width: 700px;
+		@media (min-width: 1001px){
+			max-width: 900px;
+		}
+	}
+
+	&__text{
+		text-align: center;
+		margin: 0 0 40px;
+	}
+
+	&__buttons{
+		margin: 0 0 40px;
+		&:last-child{
+			margin-bottom: 0;
+		}
+	}
+
+	&__select{
+		text-align: center;
+		margin: 0 auto 40px;
+		width: 400px;
+	}
+
+
+	&__button-placeholder{
+		margin: 0 0 30px;
+		display: block;
+			
+	}
+	
+}
+
+/* ==========================================================================
+ * error-message
+ * ========================================================================== */
+
+.error-message{
+	padding: 10px;
+	background: #ff7f7f;
+}
+ 
+
+/* ==========================================================================
+ * loader
+ * ========================================================================== */
+
+.loader{
+	background: rgba(255,255,255,.5);	
+	text-align: center;
+	opacity: 0;
+	visibility: hidden;
+	
+	transition: all .2s;
+
+	display: flex;
+
+	align-items: center;
+	justify-content: center;
+	
+	&__content{
+		width: 40px;
+		height: 40px;
+		display: inline-block;
+		animation: spin .6s infinite linear;
+	}
+
+	&--visible{
+		opacity: 1;
+		visibility: visible;
+	}
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
+
+/* ==========================================================================
+ * quiz
+ * ========================================================================== */
+
+.quiz{
+
+	&__item{
+		display: none;
+		position: relative;
+		padding-left:60px;
+
+		&--visible{
+			display: block;
+			min-height: 680px;
+		}
+	}
+
+	&__number {
+		display:block;
+		margin: -25px 0 30px;
+		font-size: 18px;
+		letter-spacing:1.8px;
+	}
+
+	&__title{
+		 max-width: 860px;
+         font-family:$gothamBold;
+		 font-size: 24px;
+		 	margin-bottom: 40px;
+		
+	}
+
+	&__image-placeholder{
+		margin: 0 0 20px;
+		height: 400px;
+		line-height: 400px;
+		text-align: center;
+
+		@media (max-height: 850px){
+			height: 300px;
+			line-height: 300px;
+		}
+
+		@media (max-height: 750px){
+			height: 250px;
+			line-height: 250px;
+		}
+
+		@media (max-height: 650px){
+			height: 200px;
+			line-height: 200px;
+		}
+	}
+
+	&__image{
+		max-width: 100%;
+		max-height: 100%;
+		height:  auto;
+		width: auto;
+		vertical-align: middle;
+		position: absolute;
+		right: 2%;
+		bottom:5%;
+	}
+
+	&__buttons{
+		
+	}
+
+	&__slider{
+		width: 932px;
+		margin: 0 auto 40px;
+	}
+
+	&__button{
+		position: relative;
+		min-width: 250px;
+		max-width:870px;
+		display:inline-block;
+		vertical-align: super;
+		cursor: pointer;
+	}
+
+	&__radio{
+		margin: 0 15px 0 0;
+		width: 26px;
+		height: 26px;
+	}
+}
+
+/* ==========================================================================
+ * quiz-slider
+ * ========================================================================== */
+
+.quiz-slider{
+
+
+
+
+	&__line{
+		padding: 6px 8px 6px 8px;
+		margin: 0 auto 12px;
+		border-radius: 13px;
+		@include sprite($range);
+	}
+
+	&__inner-line{
+		border-radius: 5px;
+		height: 10px;
+		background: #40413e;
+	}
+
+	&__handle{
+		background: #f8f8f8;
+		background: linear-gradient(to bottom, #f8f8f8 0%, #bad7db 100%);
+		padding: 10px;
+		border-radius: 5px;
+		position: absolute;
+		top: 100%;
+		right: 0;
+		height: 57px;
+		margin: 20px -73px 0 0;
+		width: 146px;
+		text-align: center;
+		box-shadow: 0 10px 15px rgba(0,0,0,.2); 
+
+		&:before{
+			content: '';
+			width: 0;
+			height: 0;
+			border-style: solid;
+			border-width: 0 10px 12px 10px;
+			border-color: transparent transparent #f8f8f8 transparent;
+			position: absolute;
+			bottom: 100%;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
+	}
+
+	&__answers{
+		margin: 0 -90px;
+		text-align: center;
+		z-index: 2;
+		position: relative;
+		pointer-events: none;
+	}
+
+	&__answer{
+		display: inline-block;
+		vertical-align: top;
+		width: 24%;
+	}
+
+	.bar{
+		height: 10px;
+		border-radius: 5px;
+	}
+
+	.bar-0{
+		background: #ffff00;
+		box-shadow: inset 0 0 3px rgba(0,0,0,.5);
+	}
+
+	.handle{
+		padding: 0 0 0;
+		height: 10px;
+		cursor: move;
+		//width: 36px;
+	}
+}
+
+/* ==========================================================================
+ * login
+ * ========================================================================== */
+
+.login{
+
+	&__content{
+		// background: url(../images/bg/intro.png) 0 0 no-repeat;
+		// width: image-width('../assets/images/bg/intro.png');
+		// min-height: image-height('../assets/images/bg/intro.png');
+		position: relative;
+		margin: auto;	
+        padding-left: 4%;
+
+	}
+
+	&__slogan {
+	   text-transform: uppercase;
+	   letter-spacing:1.8;
+	}
+
+	&__title{
+		font-family: $gothamBold;
+		font-size: 42px;
+		margin: 0 0 20px;
+		line-height: (42/30);
+	}
+
+	&__text{
+		max-width:760px;
+		font-size: 18px;
+		margin: 0 0 50px;
+		@media (max-width:1600px) {
+			max-width:37%;
+		}
+	}
+}
+
+
+/* ==========================================================================
+ * results
+ * ========================================================================== */
+
+.results{
+	padding: 20px 0 20px;
+	background: $bg;
+	@media print{
+		padding: 10px 0 10px;
+	}
+
+	&__forsave{
+
+		&--preview{
+			width: 1000px;
+			padding: 20px 0;
+			margin: 0 auto 20px;
+			overflow: hidden;
+			border: 0px solid $blue;
+			position: relative;		
+		}
+	}
+
+	&__bg {
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		width: 100%;
+		height: 100%;
+		//right: 0px;
+		//bottom: 0px;
+	}
+	
+	&__child{
+		width: 1000px;
+		margin: 0 auto 25px;
+		padding: 0 0 0 4%;
+		position: relative;
+
+		@media print, (max-width: 1200px){
+			width: 780px;
+			margin-bottom: 13px;
+		}
+	}
+
+	&__boxes{
+		position: relative;
+		//overflow: hidden;
+	}
+
+	&__boxes-bg{
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		//height: 100%;
+		left: 50%;
+		margin-left: -(1446px/2)
+	}
+
+	&__pers{
+		position: absolute;
+		display: block;
+		//left: 50%;
+		&--1{
+			top: -20px;
+			left: -50px;
+			
+			@media (max-width: 1200px ){
+				left: -60px;
+			}
+		}
+
+		&--2{
+			top: 30px;
+			right: 50px;
+			//margin-left: 380px;
+		}
+
+		&--3{
+			top: 75%;
+			left: 0;
+			
+			@media (max-width: 1200px ){
+				left: -40px;
+			}
+		}
+
+		&--4{
+			top: 75%;
+			right: 30px;
+		}
+	}
+
+	&__box{
+		margin: 0 auto 30px;
+		width: 1000px;
+		position: relative;
+
+		@media print, (max-width: 1200px){
+			width: 780px;
+			margin-bottom: 13px;
+		}
+	}
+
+	&__buttons{
+		padding: 30px;
+		position: relative;
+		@media print{
+			display: none;
+		}
+	}
+}
+
+.results-child{
+
+	&__top{
+		@include clearfix;
+		margin: 0 0 30px;
+	}
+
+	&__logo{
+		float: right;
+	}
+
+	&__avatar-placeholder{
+		float: left;
+		width: 120px;
+	}
+
+	&__avatar{
+		width: 100%;
+		height: auto;
+	}
+
+	&__info{
+		margin: 0 0 0 140px;
+	}
+
+	&__name{
+		font-size: 25px;
+		font-weight: 600;
+		margin: 0 0 6px; 
+	}
+
+	&__age{
+		font-size: 25px;
+		font-weight: 600;
+		margin: 0 0 6px; 
+	}
+
+	&__text{
+		font-size: 18px;
+
+		@media print{
+			font-size: 13px;
+		}
+	}
+}
+
+.results-box{
+	background: #fff;
+	border-radius: 30px;
+	padding: 15px 4% 30px;
+	box-shadow: 0 3px 0 #a97369; 
+
+	&__title{
+		font-size: 20px;
+		text-align: center;
+		margin: 0 0 20px;
+		font-weight: 600;
+	}
+
+	&__text{
+		font-size: 18px;
+		@media print{
+			font-size: 13px;
+		}
+	}
+
+
+}
